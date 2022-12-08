@@ -5,7 +5,6 @@ const { askUser } = require('./lib/utils');
 const { mongoose, connectMongoose, Anuncio, Usuario } = require('./models');
 
 const ANUNCIOS_JSON = './anuncios.json';
-const USUARIOS_JSON = './usuarios.json';
 
 main().catch((err) => console.error('Error!', err));
 
@@ -15,7 +14,9 @@ async function main() {
   // Espero a que se conecte la BD (para que los mensajes salgan en orden)
   await connectMongoose;
 
-  const answer = await askUser('Are you sure you want to empty DB and load initial data? (no) ');
+  const answer = await askUser(
+    'Are you sure you want to empty DB and load initial data? (yes/no) '
+  );
   if (answer.toLowerCase() !== 'yes') {
     console.log('DB init aborted! nothing has been done');
     return process.exit(0);
@@ -27,10 +28,7 @@ async function main() {
     `\nAnuncios: Deleted ${anunciosResult.deletedCount}, loaded ${anunciosResult.loadedCount} from ${ANUNCIOS_JSON}`
   );
 
-  const usuariosResult = await initModelo(Usuario, USUARIOS_JSON);
-  console.log(
-    `\nUsuarios: Deleted ${usuariosResult.deletedCount}, loaded ${usuariosResult.loadedCount} from ${USUARIOS_JSON}`
-  );
+  await initUsuarios();
 
   // Cuando termino, cierro la conexión a la BD
   await mongoose.connection.close();
@@ -41,4 +39,16 @@ async function initModelo(modelo, fichero) {
   const { deletedCount } = await modelo.deleteMany();
   const loadedCount = await modelo.cargaJson(fichero);
   return { deletedCount, loadedCount };
+}
+
+async function initUsuarios() {
+  // borrar todos los documentos de usuarios
+  const deleted = await Usuario.deleteMany();
+  console.log(`Eliminados ${deleted.deletedCount} usuarios.`);
+
+  // crear usuarios iniciales
+  const inserted = await Usuario.insertMany([
+    { email: 'user@example.com', password: await Usuario.hashPassword('1234') },
+  ]);
+  console.log(`Creados ${inserted.length} Usuarios.`);
 }
