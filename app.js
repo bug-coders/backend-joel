@@ -7,6 +7,8 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
+const LoginController = require('./routes/loginController.js');
+
 const { isAPI } = require('./lib/utils');
 require('./models'); // Connect DB & register models
 
@@ -34,8 +36,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  * Website routes
  */
+const loginController = new LoginController();
 app.use('/', require('./routes/index'));
 app.use('/anuncios', require('./routes/anuncios'));
+app.get('/login', loginController.index);
 
 /**
  * API v1 routes
@@ -46,15 +50,17 @@ app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
  * Error handlers
  */
 // catch 404 and forward to error handler
-app.use( (req, res, next) => next(createError(404)) );
+app.use((req, res, next) => next(createError(404)));
 
 // error handler
-app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
-  if (err.array) { // validation error
+app.use((err, req, res, next) => {
+  // eslint-disable-line no-unused-vars
+  if (err.array) {
+    // validation error
     err.status = 422;
     const errInfo = err.array({ onlyFirstError: true })[0];
-    err.message = isAPI(req) ?
-      { message: 'not valid', errors: err.mapped()}
+    err.message = isAPI(req)
+      ? { message: 'not valid', errors: err.mapped() }
       : `not valid - ${errInfo.param} ${errInfo.msg}`;
   }
 
@@ -64,7 +70,7 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 
   // si es un 500 lo pinto en el log
   if (err.status && err.status >= 500) console.error(err);
-  
+
   // si es una petición al API respondo JSON:
 
   if (isAPI(req)) {
