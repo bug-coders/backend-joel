@@ -7,6 +7,7 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const i18n = require('./lib/i18nConfigure.js');
 
 const LoginController = require('./routes/loginController.js');
 const jwtTokenAuth = require('./lib/jwtAuthMiddleware.js');
@@ -35,6 +36,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(i18n.init);
+
 /**
  * Website routes
  */
@@ -43,6 +46,7 @@ const loginController = new LoginController();
 
 app.use('/', require('./routes/index'));
 app.use('/anuncios', require('./routes/anuncios'));
+app.use('/change-locale', require('./routes/change-locale.js'));
 /* app.get('/login', loginController.index);
 app.post('/login', loginController.post);
 app.get('/logout', loginController.logout); */

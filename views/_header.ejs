@@ -10,7 +10,10 @@
     <nav>
       <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-          <div class="navbar-header"><a href="/" class="navbar-brand">Readme</a></div>
+          <div class="navbar-header"><a href="/" class="navbar-brand"><%= __('Readme') %></a></div>
+          <% getLocales().forEach(locale=>{ %>
+          <a href="/change-locale/<%=locale%>"><%=locale%></a>&nbsp; <%}) %>
+
           <!--         <div class="navbar-header"><a href="/login" class="navbar-brand">Login</a></div>
           <div class="navbar-header"><a href="/logout" class="navbar-brand">Logout</a></div> 
           <div class="navbar-header">
