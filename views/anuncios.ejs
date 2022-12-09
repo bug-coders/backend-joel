@@ -18,7 +18,6 @@
             <th style="text-align: right">Precio</th>
             <th>Foto</th>
             <th>Tags</th>
-            <th>#</th>
           </tr>
         </thead>
         <tbody>
@@ -29,7 +28,6 @@
             <td style="text-align: right"><%= anuncio.precio / 100 %>€</td>
             <td><img src="<%= anuncio.foto %>" /></td>
             <td><%= anuncio.tags %></td>
-            <td><%= anuncio._id %></td>
           </tr>
           <% }) %>
         </tbody>

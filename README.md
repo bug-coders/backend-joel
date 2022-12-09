@@ -46,7 +46,16 @@ To start in development mode:
 
 ### Base Path
 
-The API can be used with the path:
+/apiv1/
+
+### POST /apiv1/login
+
+The API is protected with JWT.
+To [LOGIN](/apiv1/login)
+
+### GET /apiv1/anuncios
+
+API can be used with the path adding your token to headers authorization, body.token or query.token:
 [API V1](/apiv1/anuncios)
 
 ### Error example

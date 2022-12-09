@@ -43,9 +43,9 @@ const loginController = new LoginController();
 
 app.use('/', require('./routes/index'));
 app.use('/anuncios', require('./routes/anuncios'));
-app.get('/login', loginController.index);
+/* app.get('/login', loginController.index);
 app.post('/login', loginController.post);
-app.get('/logout', loginController.logout);
+app.get('/logout', loginController.logout); */
 
 /**
  * API v1 routes
