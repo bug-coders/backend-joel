@@ -1,5 +1,6 @@
 'use strict';
 
+require('dotenv').config();
 const express = require('express');
 const createError = require('http-errors');
 const path = require('path');
@@ -8,6 +9,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
 const LoginController = require('./routes/loginController.js');
+const jwtTokenAuth = require('./lib/jwtAuthMiddleware.js');
 
 const { isAPI } = require('./lib/utils');
 require('./models'); // Connect DB & register models
@@ -36,16 +38,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  * Website routes
  */
+
 const loginController = new LoginController();
+
 app.use('/', require('./routes/index'));
 app.use('/anuncios', require('./routes/anuncios'));
 app.get('/login', loginController.index);
-app.post('/login', loginController.post);
+app.post('/login', loginController.JWTpost);
+app.get('/logout', loginController.logout);
 
 /**
  * API v1 routes
  */
-app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
+app.use('/apiv1/anuncios', jwtTokenAuth, require('./routes/apiv1/anuncios'));
+app.use('/api/login', loginController.JWTpost);
 
 /**
  * Error handlers
