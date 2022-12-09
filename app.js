@@ -44,14 +44,14 @@ const loginController = new LoginController();
 app.use('/', require('./routes/index'));
 app.use('/anuncios', require('./routes/anuncios'));
 app.get('/login', loginController.index);
-app.post('/login', loginController.JWTpost);
+app.post('/login', loginController.post);
 app.get('/logout', loginController.logout);
 
 /**
  * API v1 routes
  */
 app.use('/apiv1/anuncios', jwtTokenAuth, require('./routes/apiv1/anuncios'));
-app.use('/api/login', loginController.JWTpost);
+app.use('/apiv1/login', loginController.JWTpost);
 
 /**
  * Error handlers
