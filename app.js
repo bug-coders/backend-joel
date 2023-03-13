@@ -13,9 +13,15 @@ const LoginController = require('./routes/loginController.js');
 const jwtTokenAuth = require('./lib/jwtAuthMiddleware.js');
 
 const { isAPI } = require('./lib/utils');
+const { header } = require('express-validator');
 require('./models'); // Connect DB & register models
 
+const cors = require('cors');
+
 const app = express();
+
+app.options('/apiv1/login', cors());
+app.use(cors({ credentials: true, origin: true, optionsSuccessStatus: 200 }));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +36,12 @@ app.locals.title = 'NodePop';
  * Middlewares
  * Cada petición será evaluada por ellos
  */
+/* app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3003');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+}); */
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -54,6 +66,8 @@ app.get('/logout', loginController.logout); */
 /**
  * API v1 routes
  */
+// Add Access Control Allow Origin headers
+
 app.use('/apiv1/anuncios', jwtTokenAuth, require('./routes/apiv1/anuncios'));
 app.use('/apiv1/login', loginController.JWTpost);
 

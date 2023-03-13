@@ -24,7 +24,7 @@
           <% anuncios.forEach(anuncio => { %>
           <tr>
             <td><%= anuncio.nombre %></td>
-            <td><%= anuncio.venta %> ? <%= __('Si')%> : <%= __('No')%></td>
+            <td><%= anuncio.venta ? __('Si') : __('No')%></td>
             <td style="text-align: right"><%= anuncio.precio / 100 %>€</td>
             <td><img src="<%= anuncio.foto %>" /></td>
             <td><%= anuncio.tags %></td>

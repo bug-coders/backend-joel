@@ -33,7 +33,6 @@ class LoginController {
   async JWTpost(req, res, next) {
     try {
       const { email, password } = req.body;
-      console.log(email, password);
 
       const usuario = await Usuario.findOne({ email });
 
@@ -46,7 +45,7 @@ class LoginController {
       const JWTtoken = jwt.sign({ _id: usuario._id }, process.env.JWT_SECRET, {
         expiresIn: '2d',
       });
-      res.json({ token: JWTtoken });
+      res.json(JWTtoken);
     } catch (error) {
       next(error);
     }
