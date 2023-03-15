@@ -11,7 +11,6 @@ const { buildAnuncioFilterFromReq } = require('../../lib/utils');
 
 // Return the list of anuncio
 router.get('/', (req, res, next) => {
-
   const start = parseInt(req.query.start) || 0;
   const limit = parseInt(req.query.limit) || 1000; // nuestro api devuelve max 1000 registros
   const sort = req.query.sort || '_id';
@@ -27,26 +26,38 @@ router.get('/', (req, res, next) => {
 });
 
 // Return the list of available tags
-router.get('/tags', asyncHandler(async function (req, res) {
-  const distinctTags = await Anuncio.distinct('tags');
-  res.json({ result: distinctTags });
-}));
+router.get(
+  '/tags',
+  asyncHandler(async function (req, res, next) {
+    const distinctTags = await Anuncio.distinct('tags');
+    res.json({ result: distinctTags });
+  })
+);
+
+router.get('/:id', async (req, res, next) => {
+  const id = req.params.id;
+  const anuncio = await Anuncio.findById(id);
+  res.json(anuncio);
+});
 
 // Create
-router.post('/', [ // validaciones:
-  body('nombre' ).isAlphanumeric().withMessage('nombre must be string'),
-  body('venta'  ).isBoolean()     .withMessage('must be boolean'),
-  body('precio' ).isNumeric()     .withMessage('must be numeric'),
-], asyncHandler(async (req, res) => {
+router.post(
+  '/',
+  [
+    // validaciones:
+    body('nombre').isAlphanumeric().withMessage('nombre must be string'),
+    body('venta').isBoolean().withMessage('must be boolean'),
+    body('precio').isNumeric().withMessage('must be numeric'),
+  ],
+  asyncHandler(async (req, res) => {
+    validationResult(req).throw();
+    const anuncioData = req.body;
 
-  validationResult(req).throw();
-  const anuncioData = req.body;
+    const anuncio = new Anuncio(anuncioData);
+    const anuncioGuardado = await anuncio.save();
 
-  const anuncio = new Anuncio(anuncioData);
-  const anuncioGuardado = await anuncio.save();
-
-  res.json({ result: anuncioGuardado });
-
-}));
+    res.json({ result: anuncioGuardado });
+  })
+);
 
 module.exports = router;
