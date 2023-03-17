@@ -1,5 +1,6 @@
 'use strict';
 
+const multer = require('multer');
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
@@ -28,13 +29,13 @@ router.get('/', (req, res, next) => {
 // Return the list of available tags
 router.get(
   '/tags',
-  asyncHandler(async function (req, res, next) {
+  asyncHandler(async function (req, res) {
     const distinctTags = await Anuncio.distinct('tags');
     res.json({ result: distinctTags });
   })
 );
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', async (req, res) => {
   const id = req.params.id;
   const anuncio = await Anuncio.findById(id);
   res.json(anuncio);
@@ -43,6 +44,13 @@ router.get('/:id', async (req, res, next) => {
 // Create
 router.post(
   '/',
+  multer().fields([
+    { name: 'name' },
+    { name: 'sale' },
+    { name: 'price' },
+    { name: 'tags' },
+    { name: 'photo' },
+  ]),
   [
     // validaciones:
     body('nombre').isAlphanumeric().withMessage('nombre must be string'),
@@ -50,12 +58,14 @@ router.post(
     body('precio').isNumeric().withMessage('must be numeric'),
   ],
   asyncHandler(async (req, res) => {
-    validationResult(req).throw();
+    /* validationResult(req).throw(); */
     const anuncioData = req.body;
-
     const anuncio = new Anuncio(anuncioData);
     const anuncioGuardado = await anuncio.save();
 
+    console.log('anuncioData', anuncioData);
+    console.log('anuncio', anuncio._id);
+    console.log('anuncioGuardado', anuncioGuardado);
     res.json({ result: anuncioGuardado });
   })
 );
