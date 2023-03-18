@@ -9,7 +9,7 @@ const anuncioSchema = mongoose.Schema({
   name: { type: String, index: true },
   sale: { type: Boolean, index: true },
   price: { type: Number, index: true },
-  photo: String,
+  photo: Array,
   tags: { type: [String], index: true },
 });
 

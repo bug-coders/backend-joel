@@ -6,6 +6,8 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const asyncHandler = require('express-async-handler');
 const { body, validationResult } = require('express-validator');
+const storage = require('../../lib/multerConfig.js');
+const fs = require('fs');
 
 const Anuncio = mongoose.model('Anuncio');
 const { buildAnuncioFilterFromReq } = require('../../lib/utils');
@@ -48,7 +50,17 @@ router.get('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   const id = req.params.id;
-  const anuncio = await Anuncio.findById(id);
+  const anuncio = await Anuncio.findOne({ _id: id });
+  anuncio.photo[0] &&
+    fs.rm(anuncio.photo[0].path, (err) => {
+      if (err) {
+        // File deletion failed
+        console.error(err.message);
+        return;
+      }
+      console.log('File deleted successfully');
+    });
+
   await Anuncio.deleteOne({ _id: id });
   res.sendStatus(200);
 });
@@ -56,7 +68,7 @@ router.delete('/:id', async (req, res) => {
 // Create
 router.post(
   '/',
-  multer().fields([
+  multer({ storage: storage }).fields([
     { name: 'name' },
     { name: 'sale' },
     { name: 'price' },
@@ -71,13 +83,9 @@ router.post(
   ],
   asyncHandler(async (req, res) => {
     validationResult(req).throw();
-    const anuncioData = req.body;
+    const anuncioData = { ...req.body, ...req.files };
     const anuncio = new Anuncio(anuncioData);
     const anuncioGuardado = await anuncio.save();
-
-    console.log('anuncioData', anuncioData);
-    console.log('anuncio', anuncio._id);
-    console.log('anuncioGuardado', anuncioGuardado);
     res.json(anuncioGuardado);
   })
 );
