@@ -53,12 +53,12 @@ router.post(
   ]),
   [
     // validaciones:
-    body('nombre').isAlphanumeric().withMessage('nombre must be string'),
-    body('venta').isBoolean().withMessage('must be boolean'),
-    body('precio').isNumeric().withMessage('must be numeric'),
+    body('name').isString().withMessage('nombre must be string'),
+    body('sale').isBoolean().withMessage('must be boolean'),
+    body('price').isNumeric().withMessage('must be numeric'),
   ],
   asyncHandler(async (req, res) => {
-    /* validationResult(req).throw(); */
+    validationResult(req).throw();
     const anuncioData = req.body;
     const anuncio = new Anuncio(anuncioData);
     const anuncioGuardado = await anuncio.save();
@@ -66,7 +66,7 @@ router.post(
     console.log('anuncioData', anuncioData);
     console.log('anuncio', anuncio._id);
     console.log('anuncioGuardado', anuncioGuardado);
-    res.json({ result: anuncioGuardado });
+    res.json(anuncioGuardado);
   })
 );
 
