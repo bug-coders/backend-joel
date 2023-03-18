@@ -10,10 +10,12 @@ const bodyParser = require('body-parser');
 const i18n = require('./lib/i18nConfigure.js');
 
 const LoginController = require('./routes/loginController.js');
-const jwtTokenAuth = require('./lib/jwtAuthMiddleware.js');
+
+const register = require('./routes/apiv1/register');
+// const jwtTokenAuth = require('./lib/jwtAuthMiddleware.js');
 
 const { isAPI } = require('./lib/utils');
-const { header } = require('express-validator');
+// const { header } = require('express-validator');
 require('./models'); // Connect DB & register models
 
 const cors = require('cors');
@@ -70,6 +72,7 @@ app.get('/logout', loginController.logout); */
 
 app.use('/apiv1/anuncios', /* jwtTokenAuth, */ require('./routes/apiv1/anuncios'));
 app.use('/apiv1/login', loginController.JWTpost);
+app.use('/apiv1/register', register);
 
 /**
  * Error handlers
