@@ -30,8 +30,13 @@ router.get('/', (req, res, next) => {
 router.get(
   '/tags',
   asyncHandler(async function (req, res) {
-    const distinctTags = await Anuncio.distinct('tags');
-    res.json({ result: distinctTags });
+    const availableTags = [
+      'Instrumentos de viento',
+      'Instrumentos de percusión',
+      'Instrumentos de cuerda',
+      'Electrónica',
+    ];
+    res.json({ result: availableTags });
   })
 );
 
@@ -39,6 +44,13 @@ router.get('/:id', async (req, res) => {
   const id = req.params.id;
   const anuncio = await Anuncio.findById(id);
   res.json(anuncio);
+});
+
+router.delete('/:id', async (req, res) => {
+  const id = req.params.id;
+  const anuncio = await Anuncio.findById(id);
+  await Anuncio.deleteOne({ _id: id });
+  res.sendStatus(200);
 });
 
 // Create
