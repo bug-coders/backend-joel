@@ -3,10 +3,27 @@
 const mongoose = require('mongoose');
 const fsPromises = require('fs').promises;
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
-const usuarioSchema = mongoose.Schema({
-  email: { type: String, unique: true },
-  password: String,
+const usuarioSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    minLength: 5,
+    maxLength: 50,
+    uppercase: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+    minLength: 5,
+    //maxLength: 50
+  },
 });
 
 usuarioSchema.statics.hashPassword = function (passwordEnClaro) {
@@ -42,6 +59,11 @@ usuarioSchema.statics.cargaJson = async function (fichero) {
   return numUsuarios;
 };
 
+usuarioSchema.methods.generateAuthToken = function () {
+  const token = jwt.sign({ id: this._id }, process.env.JWT_SECRET);
+  return token;
+};
+
 const Usuario = mongoose.model('Usuario', usuarioSchema);
 
-module.exports = Usuario;
+module.exports = { Usuario };

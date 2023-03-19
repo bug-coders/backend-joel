@@ -1,6 +1,9 @@
 'use strict';
 
-const { Usuario } = require('../models');
+const mongoose = require('mongoose');
+require('../models/Usuario.js');
+
+const Usuario = mongoose.model('Usuario');
 const jwt = require('jsonwebtoken');
 
 class LoginController {
@@ -23,7 +26,7 @@ class LoginController {
         return;
       }
 
-      res.redirect('/apiv1/anuncios');
+      res.redirect('/');
     } catch (error) {
       next(error);
     }
