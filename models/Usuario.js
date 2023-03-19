@@ -66,4 +66,4 @@ usuarioSchema.methods.generateAuthToken = function () {
 
 const Usuario = mongoose.model('Usuario', usuarioSchema);
 
-module.exports = { Usuario };
+module.exports = Usuario;
