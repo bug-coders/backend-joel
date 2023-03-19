@@ -32,3 +32,5 @@ node_modules
 .idea
 
 .env
+
+public/images/anuncios

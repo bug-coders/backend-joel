@@ -59,6 +59,7 @@ const loginController = new LoginController();
 app.use('/', require('./routes/index'));
 app.use('/anuncios', require('./routes/anuncios'));
 app.use('/change-locale', require('./routes/change-locale.js'));
+
 /* app.get('/login', loginController.index);
 app.post('/login', loginController.post);
 app.get('/logout', loginController.logout); */
@@ -70,6 +71,7 @@ app.get('/logout', loginController.logout); */
 
 app.use('/apiv1/anuncios', /* jwtTokenAuth, */ require('./routes/apiv1/anuncios'));
 app.use('/apiv1/login', loginController.JWTpost);
+app.use('/apiv1', express.static('public'));
 
 /**
  * Error handlers
