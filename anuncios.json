@@ -1,18 +1,65 @@
 {
   "anuncios": [
     {
-      "name": "Bicicleta",
-      "sale": true,
-      "price": 23015,
+      "name": "Guitarra española",
+      "sale": false,
+      "price": 40,
       "photo": [],
-      "tags": ["lifestyle", "motor"]
+      "tags": ["Instrumentos de cuerda"]
     },
     {
-      "name": "iPhone 3GS",
-      "sale": false,
-      "price": 5000,
-      "photo": [],
-      "tags": ["lifestyle", "mobile"]
+      "name": "saxo tenor",
+      "sale": true,
+      "price": 900,
+      "photo": [
+        {
+          "fieldname": "photo",
+          "originalname": "saxo-anuncio.avif",
+          "encoding": "7bit",
+          "mimetype": "image/avif",
+          "destination": "./public/images/anuncios/",
+          "filename": "1679331542286-saxo-anuncio.avif",
+          "path": "public\\images\\anuncios\\1679331542286-saxo-anuncio.avif",
+          "size": 12395
+        }
+      ],
+      "tags": ["Instrumentos de viento"]
+    },
+    {
+      "name": "Piano de pared Yamaha",
+      "sale": true,
+      "price": 16000,
+      "photo": [
+        {
+          "fieldname": "photo",
+          "originalname": "yamaha-yus5-negro-pulido-pe.webp",
+          "encoding": "7bit",
+          "mimetype": "image/webp",
+          "destination": "./public/images/anuncios/",
+          "filename": "1679331901481-yamaha-yus5-negro-pulido-pe.webp",
+          "path": "public\\images\\anuncios\\1679331901481-yamaha-yus5-negro-pulido-pe.webp",
+          "size": 31648
+        }
+      ],
+      "tags": ["Instrumentos de cuerda"]
+    },
+    {
+      "name": "acordeon roland",
+      "sale": true,
+      "price": 1500,
+      "photo": [
+        {
+          "fieldname": "photo",
+          "originalname": "acordeon-roland-fr-1x-bk.jpg",
+          "encoding": "7bit",
+          "mimetype": "image/jpeg",
+          "destination": "./public/images/anuncios/",
+          "filename": "1679332203736-acordeon-roland-fr-1x-bk.jpg",
+          "path": "public\\images\\anuncios\\1679332203736-acordeon-roland-fr-1x-bk.jpg",
+          "size": 148518
+        }
+      ],
+      "tags": ["Instrumentos de viento"]
     }
   ]
 }

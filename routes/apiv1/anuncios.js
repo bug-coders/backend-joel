@@ -86,6 +86,7 @@ router.post(
     const anuncioData = { ...req.body, ...req.files };
     const anuncio = new Anuncio(anuncioData);
     const anuncioGuardado = await anuncio.save();
+    console.log(anuncioGuardado);
     res.json(anuncioGuardado);
   })
 );
