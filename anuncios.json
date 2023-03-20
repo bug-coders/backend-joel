@@ -41,7 +41,7 @@
           "size": 31648
         }
       ],
-      "tags": ["Instrumentos de cuerda"]
+      "tags": ["Instrumentos de teclado"]
     },
     {
       "name": "acordeon roland",
@@ -59,7 +59,7 @@
           "size": 148518
         }
       ],
-      "tags": ["Instrumentos de viento"]
+      "tags": ["Instrumentos de viento", "Instrumento de teclado"]
     }
   ]
 }
