@@ -85,7 +85,16 @@ router.post(
   ],
   asyncHandler(async (req, res) => {
     validationResult(req).throw();
-    const anuncioData = { ...req.body, ...req.files };
+
+    const tagsArray = req.body.tags.split(',');
+    const anuncioData = {
+      name: req.body.name,
+      sale: req.body.sale,
+      price: req.body.price,
+      ...req.files,
+      tags: tagsArray,
+    };
+
     const anuncio = new Anuncio(anuncioData);
     const anuncioGuardado = await anuncio.save();
     console.log(anuncioGuardado);
