@@ -33,10 +33,12 @@ router.get(
   '/tags',
   asyncHandler(async function (req, res) {
     const availableTags = [
+      'Instrumentos de teclado',
       'Instrumentos de viento',
       'Instrumentos de percusión',
       'Instrumentos de cuerda',
-      'Electrónica',
+      'Instrumentos electrónicos',
+      'Sonido y microfonía',
     ];
     res.json({ result: availableTags });
   })
