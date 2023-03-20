@@ -4,14 +4,14 @@
       "name": "Bicicleta",
       "sale": true,
       "price": 23015,
-      "photo": "bici.jpg",
+      "photo": [],
       "tags": ["lifestyle", "motor"]
     },
     {
       "name": "iPhone 3GS",
       "sale": false,
       "price": 5000,
-      "photo": "iphone.png",
+      "photo": [],
       "tags": ["lifestyle", "mobile"]
     }
   ]
