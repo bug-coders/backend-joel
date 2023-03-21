@@ -34,16 +34,6 @@ app.set('view engine', 'ejs');
  */
 app.locals.title = 'NodePop';
 
-/**
- * Middlewares
- * Cada petición será evaluada por ellos
- */
-/* app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3003');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-}); */
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -52,15 +42,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(i18n.init);
 
-/**
- * Website routes
- */
-
 const loginController = new LoginController();
 
-app.use('/', require('./routes/index'));
+/* app.use('/', require('./routes/index'));
 app.use('/anuncios', require('./routes/anuncios'));
-app.use('/change-locale', require('./routes/change-locale.js'));
+app.use('/change-locale', require('./routes/change-locale.js')); */
 
 /* app.get('/login', loginController.index);
 app.post('/login', loginController.post);
