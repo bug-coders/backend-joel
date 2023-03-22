@@ -36,18 +36,20 @@ class LoginController {
     try {
       const { email, password } = req.body;
 
-      const usuario = await Usuario.findOne({ email });
+      const userData = await Usuario.findOne({ email });
 
-      if (!usuario || !(await usuario.comparePassword(password))) {
+      if (!userData || !(await userData.comparePassword(password))) {
         res.status(401);
         res.json({ error: 'Invalid credentials' });
         return;
       }
 
-      const JWTtoken = jwt.sign({ _id: usuario._id }, process.env.JWT_SECRET, {
+      const user = { _id: userData._id, name: userData.name, email: userData.email };
+
+      const JWTtoken = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
         expiresIn: '2d',
       });
-      res.json(JWTtoken);
+      res.json({ JWTtoken, user });
     } catch (error) {
       next(error);
     }
