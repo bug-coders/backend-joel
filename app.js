@@ -13,7 +13,6 @@ const LoginController = require('./routes/loginController.js');
 
 const register = require('./routes/apiv1/register');
 const jwtTokenAuth = require('./lib/jwtAuthMiddleware.js');
-const jwtUserDecoder = require('./lib/jwtUser.js');
 
 const { isAPI } = require('./lib/utils');
 // const { header } = require('express-validator');
