@@ -1,80 +1,97 @@
 {
   "anuncios": [
     {
-      "_id": "641baf1ebe94e305dd55a75f",
-      "name": "Probando DBinit",
+      "_id": "641bd111bbf89a4bd8462141",
+      "name": "Saxo alto KEILWERTH",
       "sale": true,
-      "price": 5432,
-      "photo": [],
-      "tags": ["Instrumentos de percusión"],
-      "creator": {
-        "_id": "641ba7f29bb3342467bfcb47",
-        "name": "JOELL",
-        "email": "usuario1@test.com"
-      },
-      "description": "",
-      "__v": 0
-    },
-    {
-      "name": "Guitarra española",
-      "sale": false,
-      "price": 40,
-      "photo": [],
-      "tags": ["Instrumentos de cuerda"]
-    },
-    {
-      "name": "saxo tenor",
-      "sale": true,
-      "price": 900,
+      "price": 1295,
       "photo": [
         {
           "fieldname": "photo",
-          "originalname": "saxo-anuncio.avif",
-          "encoding": "7bit",
-          "mimetype": "image/avif",
-          "destination": "./public/images/anuncios/",
-          "filename": "1679331542286-saxo-anuncio.avif",
-          "path": "public\\images\\anuncios\\1679331542286-saxo-anuncio.avif",
-          "size": 12395
-        }
-      ],
-      "tags": ["Instrumentos de viento"]
-    },
-    {
-      "name": "Piano de pared Yamaha",
-      "sale": true,
-      "price": 16000,
-      "photo": [
-        {
-          "fieldname": "photo",
-          "originalname": "yamaha-yus5-negro-pulido-pe.webp",
-          "encoding": "7bit",
-          "mimetype": "image/webp",
-          "destination": "./public/images/anuncios/",
-          "filename": "1679331901481-yamaha-yus5-negro-pulido-pe.webp",
-          "path": "public\\images\\anuncios\\1679331901481-yamaha-yus5-negro-pulido-pe.webp",
-          "size": 31648
-        }
-      ],
-      "tags": ["Instrumentos de teclado"]
-    },
-    {
-      "name": "acordeon roland",
-      "sale": true,
-      "price": 1500,
-      "photo": [
-        {
-          "fieldname": "photo",
-          "originalname": "acordeon-roland-fr-1x-bk.jpg",
+          "originalname": "saxofon-alto-keilwerth-jk-2103.jpg",
           "encoding": "7bit",
           "mimetype": "image/jpeg",
           "destination": "./public/images/anuncios/",
-          "filename": "1679332203736-acordeon-roland-fr-1x-bk.jpg",
-          "path": "public\\images\\anuncios\\1679332203736-acordeon-roland-fr-1x-bk.jpg",
-          "size": 148518
+          "filename": "1679544593580-saxofon-alto-keilwerth-jk-2103.jpg",
+          "path": "public\\images\\anuncios\\1679544593580-saxofon-alto-keilwerth-jk-2103.jpg",
+          "size": 60587
         }
       ],
-      "tags": ["Instrumentos de viento", "Instrumento de teclado"]
+      "tags": ["Instrumentos de viento"],
+      "creator": {
+        "_id": "641bd0b7ad414dd557a8b95d",
+        "name": "ADMIN",
+        "email": "user@example.com"
+      },
+      "description": "Saxo alto Keilwerth 2ª mano: Cálido y potente, cuerpo de latón dorado y llaves de níquel plateado. Bien cuidado, afinado y con estuche y accesorios básicos.",
+      "__v": 0
+    },
+    {
+      "_id": "641bd196bbf89a4bd8462143",
+      "name": "Acordeón Roland FR8 X BK",
+      "sale": true,
+      "price": 5799,
+      "photo": [
+        {
+          "fieldname": "photo",
+          "originalname": "acordeon roland.jpg",
+          "encoding": "7bit",
+          "mimetype": "image/jpeg",
+          "destination": "./public/images/anuncios/",
+          "filename": "1679544726566-acordeon roland.jpg",
+          "path": "public\\images\\anuncios\\1679544726566-acordeon roland.jpg",
+          "size": 303960
+        }
+      ],
+      "tags": ["Instrumentos de teclado", "Instrumentos de viento"],
+      "creator": {
+        "_id": "641bd0b7ad414dd557a8b95d",
+        "name": "ADMIN",
+        "email": "user@example.com"
+      },
+      "description": "El acordeón Roland FR8X BK es un modelo de alta gama con teclado digital y sonidos de acordeón auténticos, peso ligero y correas ergonómicas para mayor comodidad.",
+      "__v": 0
+    },
+    {
+      "_id": "641bd201bbf89a4bd8462145",
+      "name": "Batería",
+      "sale": false,
+      "price": 1500,
+      "photo": [],
+      "tags": ["Instrumentos de percusión"],
+      "creator": {
+        "_id": "641bd0b7ad414dd557a8b95d",
+        "name": "ADMIN",
+        "email": "user@example.com"
+      },
+      "description": "Busco batería de gama profesional, preferiblemente Pearl, Tama, wd o Gretch",
+      "__v": 0
+    },
+    {
+      "_id": "641bd2c2bbf89a4bd8462147",
+      "name": "Batería Yamaha",
+      "sale": true,
+      "price": 700,
+      "photo": [
+        {
+          "fieldname": "photo",
+          "originalname": "baterÃ­a yamaha.webp",
+          "encoding": "7bit",
+          "mimetype": "image/webp",
+          "destination": "./public/images/anuncios/",
+          "filename": "1679545026328-baterÃ­a yamaha.webp",
+          "path": "public\\images\\anuncios\\1679545026328-baterÃ­a yamaha.webp",
+          "size": 29146
+        }
+      ],
+      "tags": ["Instrumentos de percusión"],
+      "creator": {
+        "_id": "641bd0b7ad414dd557a8b95d",
+        "name": "ADMIN",
+        "email": "user@example.com"
+      },
+      "description": "Batería Yamaha: Construcción duradera, sonidos potentes y equilibrados, amplia gama de opciones para cualquier nivel y estilo. Desde kits de iniciación hasta modelos de gama alta.",
+      "__v": 0
     }
   ]
 }
