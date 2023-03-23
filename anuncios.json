@@ -1,6 +1,21 @@
 {
   "anuncios": [
     {
+      "_id": "641baf1ebe94e305dd55a75f",
+      "name": "Probando DBinit",
+      "sale": true,
+      "price": 5432,
+      "photo": [],
+      "tags": ["Instrumentos de percusión"],
+      "creator": {
+        "_id": "641ba7f29bb3342467bfcb47",
+        "name": "JOELL",
+        "email": "usuario1@test.com"
+      },
+      "description": "",
+      "__v": 0
+    },
+    {
       "name": "Guitarra española",
       "sale": false,
       "price": 40,

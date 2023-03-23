@@ -101,7 +101,48 @@ router.post(
 
     const anuncio = new Anuncio(anuncioData);
     const anuncioGuardado = await anuncio.save();
-    console.log(anuncioGuardado);
+    res.json(anuncioGuardado);
+  })
+);
+
+router.put(
+  '/:id',
+  multer({ storage: storage }).fields([
+    { name: 'name' },
+    { name: 'sale' },
+    { name: 'price' },
+    { name: 'tags' },
+    { name: 'photo' },
+    { name: 'creator' },
+    { name: 'description' },
+  ]),
+  [
+    // validaciones:
+    body('name').isString().withMessage('nombre must be string'),
+    body('sale').isBoolean().withMessage('must be boolean'),
+    body('price').isNumeric().withMessage('must be numeric'),
+  ],
+  asyncHandler(async (req, res) => {
+    validationResult(req).throw();
+
+    const tagsArray = req.body.tags.split(',');
+    const anuncioData = {
+      name: req.body.name,
+      description: req.body.description,
+      sale: req.body.sale,
+      price: req.body.price,
+      ...req.files,
+      tags: tagsArray,
+      creator: JSON.parse(req.body.creator),
+    };
+
+    const anuncio = await Anuncio.findById(req.params.id);
+    if (!anuncio) {
+      return res.status(404).json({ message: 'anuncio not found' });
+    }
+
+    Object.assign(anuncio, anuncioData);
+    const anuncioGuardado = await anuncio.save();
     res.json(anuncioGuardado);
   })
 );
