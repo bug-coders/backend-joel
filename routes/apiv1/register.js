@@ -21,7 +21,10 @@ router.post('/', async (req, res) => {
   const password = await Usuario.hashPassword(req.body.password);
   const userData = { name, email, password };
 
-  const alreadyRegistered = !!(await Usuario.findOne({ email: userData.email }));
+  const alreadyRegistered = !!(
+    (await Usuario.findOne({ email: userData.email })) ||
+    !!(await Usuario.findOne({ name: userData.name }))
+  );
 
   if (alreadyRegistered) {
     return res.status(400).send('Ya hay una cuenta con este email. Por favor introduce otro email');
