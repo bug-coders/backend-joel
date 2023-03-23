@@ -77,6 +77,7 @@ router.post(
     { name: 'tags' },
     { name: 'photo' },
     { name: 'creator' },
+    { name: 'description' },
   ]),
   [
     // validaciones:
@@ -90,6 +91,7 @@ router.post(
     const tagsArray = req.body.tags.split(',');
     const anuncioData = {
       name: req.body.name,
+      description: req.body.description,
       sale: req.body.sale,
       price: req.body.price,
       ...req.files,

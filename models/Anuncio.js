@@ -12,6 +12,7 @@ const anuncioSchema = mongoose.Schema({
   photo: Array,
   tags: { type: [String], index: true },
   creator: {},
+  description: String,
 });
 
 /**
