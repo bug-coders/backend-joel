@@ -76,6 +76,7 @@ router.post(
     { name: 'price' },
     { name: 'tags' },
     { name: 'photo' },
+    { name: 'creator' },
   ]),
   [
     // validaciones:
@@ -93,6 +94,7 @@ router.post(
       price: req.body.price,
       ...req.files,
       tags: tagsArray,
+      creator: JSON.parse(req.body.creator),
     };
 
     const anuncio = new Anuncio(anuncioData);

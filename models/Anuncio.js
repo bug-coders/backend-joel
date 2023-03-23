@@ -11,13 +11,21 @@ const anuncioSchema = mongoose.Schema({
   price: { type: Number, index: true },
   photo: Array,
   tags: { type: [String], index: true },
+  creator: {},
 });
 
 /**
  * lista de tags permitidos
  */
 anuncioSchema.statics.allowedTags = function () {
-  return ['work', 'lifestyle', 'motor', 'mobile'];
+  return [
+    'Instrumentos de teclado',
+    'Instrumentos de viento',
+    'Instrumentos de percusión',
+    'Instrumentos de cuerda',
+    'Instrumentos electrónicos',
+    'Sonido y microfonía',
+  ];
 };
 
 /**
