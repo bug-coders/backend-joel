@@ -92,6 +92,162 @@
       },
       "description": "Batería Yamaha: Construcción duradera, sonidos potentes y equilibrados, amplia gama de opciones para cualquier nivel y estilo. Desde kits de iniciación hasta modelos de gama alta.",
       "__v": 0
+    },
+    {
+      "_id": "641c8ea6a8dd382ed3c1751a",
+      "name": "guitarra electrica sx ed1 negra",
+      "sale": false,
+      "price": 150,
+      "photo": [],
+      "tags": ["Instrumentos de cuerda"],
+      "creator": {
+        "_id": "641bd0b7ad414dd557a8b95d",
+        "name": "ADMIN",
+        "email": "user@example.com"
+      },
+      "description": "Hola, estoy interesado en comprar una guitarra eléctrica SX ED1 negra. Busco un instrumento de alta calidad con un buen sonido y un precio asequible. Si alguien tiene una en venta o sabe dónde puedo encontrar una, por favor, háganmelo saber. ¡Gracias!",
+      "__v": 0
+    },
+    {
+      "_id": "641c8ef5a8dd382ed3c1751c",
+      "name": "Guitarra Electrica SX-ED1",
+      "sale": true,
+      "price": 230,
+      "photo": [
+        {
+          "fieldname": "photo",
+          "originalname": "guitarra-electrica-sx-ed1-negra.jpg",
+          "encoding": "7bit",
+          "mimetype": "image/jpeg",
+          "destination": "./public/images/anuncios/",
+          "filename": "1679593205099-guitarra-electrica-sx-ed1-negra.jpg",
+          "path": "public\\images\\anuncios\\1679593205099-guitarra-electrica-sx-ed1-negra.jpg",
+          "size": 14643
+        }
+      ],
+      "tags": ["Instrumentos de cuerda"],
+      "creator": {
+        "_id": "641bd0b7ad414dd557a8b95d",
+        "name": "ADMIN",
+        "email": "user@example.com"
+      },
+      "description": "¡Consigue tu sonido único con la guitarra eléctrica SX ED1 negra! Perfecta para principiantes y expertos, esta guitarra te llevará a través de cualquier género musical. ¡Compra la tuya ahora!",
+      "__v": 0
+    },
+    {
+      "_id": "641c8f8ba8dd382ed3c1751e",
+      "name": "Piano Yamaha",
+      "sale": false,
+      "price": 12000,
+      "photo": [
+        {
+          "fieldname": "photo",
+          "originalname": "piano yamaha.webp",
+          "encoding": "7bit",
+          "mimetype": "image/webp",
+          "destination": "./public/images/anuncios/",
+          "filename": "1679593355889-piano yamaha.webp",
+          "path": "public\\images\\anuncios\\1679593355889-piano yamaha.webp",
+          "size": 175442
+        }
+      ],
+      "tags": ["Instrumentos de teclado"],
+      "creator": {
+        "_id": "641bd0b7ad414dd557a8b95d",
+        "name": "ADMIN",
+        "email": "user@example.com"
+      },
+      "description": "El piano de pared Yamaha es una elección popular para músicos de todos los niveles. Con su diseño elegante y funcionalidad de alta calidad, es una inversión que durará toda la vida. Si estás buscando un piano de calidad que pueda adaptarse a cualquier espacio, el piano de pared Yamaha es una excelen",
+      "__v": 0
+    },
+    {
+      "_id": "641c9059a8dd382ed3c17526",
+      "name": "Teclado Nord Clavia",
+      "sale": true,
+      "price": 1500,
+      "photo": [
+        {
+          "fieldname": "photo",
+          "originalname": "teclado nord.jpg",
+          "encoding": "7bit",
+          "mimetype": "image/jpeg",
+          "destination": "./public/images/anuncios/",
+          "filename": "1679593561873-teclado nord.jpg",
+          "path": "public\\images\\anuncios\\1679593561873-teclado nord.jpg",
+          "size": 24021
+        }
+      ],
+      "tags": ["Instrumentos de teclado", "Instrumentos electrónicos"],
+      "creator": {
+        "_id": "641c8fbda8dd382ed3c17522",
+        "name": "USUARIO DE PRUEBA",
+        "email": "usuario1@test.com"
+      },
+      "description": "El Clavia Nord Piano 5 88 es un teclado excepcional con un sonido increíblemente realista. Con una acción de teclado ponderada y un conjunto completo de funciones, es la elección perfecta para pianistas de concierto, profesionales de estudio y músicos en giras. Descubre el poder y la expresividad de",
+      "__v": 0
+    },
+    {
+      "_id": "641c9086a8dd382ed3c17528",
+      "name": "Piano electrico",
+      "sale": false,
+      "price": 500,
+      "photo": [],
+      "tags": ["Instrumentos de teclado", "Instrumentos electrónicos"],
+      "creator": {
+        "_id": "641c8fbda8dd382ed3c17522",
+        "name": "USUARIO DE PRUEBA",
+        "email": "usuario1@test.com"
+      },
+      "description": "Busco piano electrico para que mi hijo pueda practicar sin molestar a los vecinos. Con entrada de auriculares.",
+      "__v": 0
+    },
+    {
+      "_id": "641c90aea8dd382ed3c1752a",
+      "name": "Altavoces Electrovoice",
+      "sale": false,
+      "price": 800,
+      "photo": [],
+      "tags": ["Sonido y microfonía"],
+      "creator": {
+        "_id": "641c8fbda8dd382ed3c17522",
+        "name": "USUARIO DE PRUEBA",
+        "email": "usuario1@test.com"
+      },
+      "description": "Busco altavoces electrovoice o similares",
+      "__v": 0
+    },
+    {
+      "_id": "641c910ea8dd382ed3c1752c",
+      "name": "Todos los instrumentos",
+      "sale": false,
+      "price": 1,
+      "photo": [
+        {
+          "fieldname": "photo",
+          "originalname": "coleccion instrumentos.png",
+          "encoding": "7bit",
+          "mimetype": "image/png",
+          "destination": "./public/images/anuncios/",
+          "filename": "1679593742392-coleccion instrumentos.png",
+          "path": "public\\images\\anuncios\\1679593742392-coleccion instrumentos.png",
+          "size": 165256
+        }
+      ],
+      "tags": [
+        "Instrumentos de teclado",
+        "Instrumentos de viento",
+        "Instrumentos de percusión",
+        "Instrumentos de cuerda",
+        "Instrumentos electrónicos",
+        "Sonido y microfonía"
+      ],
+      "creator": {
+        "_id": "641c8fbda8dd382ed3c17522",
+        "name": "USUARIO DE PRUEBA",
+        "email": "usuario1@test.com"
+      },
+      "description": "Anuncio con toddos los tags para probar los filtros",
+      "__v": 0
     }
   ]
 }

@@ -54,6 +54,12 @@ async function initUsuarios() {
       email: 'user@example.com',
       password: await Usuario.hashPassword('12345'),
     },
+    {
+      _id: '641c8fbda8dd382ed3c17522',
+      name: 'USUARIO DE PRUEBA',
+      email: 'usuario1@test.com',
+      password: await Usuario.hashPassword('12345'),
+    },
   ]);
   console.log(`Creados ${inserted.length} Usuarios.`);
 }
